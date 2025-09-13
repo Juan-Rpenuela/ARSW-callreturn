@@ -33,7 +33,7 @@ public class HttpServer {
             BufferedReader in = new BufferedReader(
                     new InputStreamReader(
                             clientSocket.getInputStream()));
-            String inputLine, outputLine;
+            String inputLine;
 
             //Obtain the uri from the request
             boolean isFirstLine = true;

@@ -5,7 +5,7 @@ import java.net.*;
 public class URLInfo {
     public static void main(String[] args) {
         try {
-            URL url = new URL("http://www.google.com:80/index.html");
+            URL url = new URL("http://www.google.com:80/index.html?id=123#section1");
             System.out.println("Protocolo: " + url.getProtocol());
             System.out.println("Host: " + url.getHost());
             System.out.println("Puerto: " + url.getPort());
