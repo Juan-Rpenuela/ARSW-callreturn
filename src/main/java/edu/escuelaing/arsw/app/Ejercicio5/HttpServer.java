@@ -8,7 +8,7 @@ import java.nio.file.Paths;
 
 public class HttpServer {
 
-    public static final String WEB_ROOT = "src\\main\\java\\edu\\escuelaing\\arsw\\app\\Ejercicio5\\resources";
+    public static final String WEB_ROOT = "src/main/java/edu/escuelaing/arsw/app/Ejercicio5/resources";
 
     public static void main(String[] args) throws IOException, URISyntaxException {
         ServerSocket serverSocket = null;
@@ -50,11 +50,7 @@ public class HttpServer {
                 }
             }
             String requestFile = requestURI.getPath();
-            //Use the uri to decide what to do
-            if (requestURI.getPath().startsWith("/app/hello")) {
-                outputLine = helloService(requestURI);
-                out.write(outputLine.getBytes());
-            } else if (requestURI.getPath().equals("/")) {
+            if (requestURI.getPath().equals("/")) {
                 serverFile("index.html", out);
             }
             else {
@@ -97,15 +93,6 @@ public class HttpServer {
                 + "\r\n";
         return headers;
     }
-
-    private static String helloService(URI requestURI) {
-        String response = sendHttpHeaders("application/json", 200, "OK");
-        String name = requestURI.getQuery().split("=")[1];
-        response = response + "{\"mensaje\": \"Hola " + name + "\"}";
-
-        return response;
-    }
-
 
     private static String getMimeType(String filename) {
         if (filename.endsWith(".html")) {
